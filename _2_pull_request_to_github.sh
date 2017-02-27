@@ -20,7 +20,7 @@ function GitContinue(){
 ##ローカルで修正したファイルをgithubにpush requestする##
 
 git status
-echo "Still Add? (y/n)"
+echo "01. git Add? (y/n)"
 read add_Y_N
 if GitContinue $add_Y_N; then
 	echo "YOU QUITE ADD!"
@@ -30,8 +30,8 @@ else
 	git add .
 fi
 
-git status
-echo "Still Commit? (y/n)"
+#git status
+echo "02.git commit? (y/n)"
 read commit_Y_N
 if GitContinue $commit_Y_N; then
 	echo "YOU QUITE commit!"
@@ -43,7 +43,7 @@ else
 	git commit -m "$summary"
 fi
 
-echo "Still push? (y/n)"
+echo "03.Push request? (y/n)"
 read push_Y_N
 
 if GitContinue $push_Y_N; then
