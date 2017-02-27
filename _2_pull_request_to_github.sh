@@ -51,7 +51,7 @@ if GitContinue $push_Y_N; then
 	exit 0
 else	
 	git branch
-	echo "Please input the Current Branch Name for push request:"
+	echo "Please input the Branch Name for push request:"
 	read branch_name
 	git push origin $branch_name
 	
