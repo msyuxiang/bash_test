@@ -7,18 +7,32 @@ git checkout -b $branchName
 
 if [ $? -ne 0 ]; then
 	#echo "ERROE: specified branch already existed."	
-	echo "Still switch to "$branchName?"(y/n)"
-	read Y_N
-	case $Y_N in
+	echo "Switch to "$branchName?"(y/n)"
+	read switch_Y_N
+	case $switch_Y_N in
 		y)
 			git checkout $branchName
 			git branch
 			exit
 			;;
 		n)
-			#echo "Now you are in the following branch:"
-			git branch
-			exit
+			echo "Delete "$branchName?"(y/n)"
+			read delete_Y_N
+			case $delete_Y_N in
+				y)
+					git branch -d $branchName
+					git branch
+					exit
+					;;
+				n)
+					git branch
+					exit
+					;;
+				*)
+					git branch
+					exit
+					;;
+			esac
 			;;
 		*)
 			git branch
