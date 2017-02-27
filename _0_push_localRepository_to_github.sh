@@ -38,4 +38,4 @@ if [ $? -ne 0 ]; then
 	exit 0;
 else
 	echo "DONE!"
-
+fi
